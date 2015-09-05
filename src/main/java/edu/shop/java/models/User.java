@@ -1,5 +1,10 @@
 package edu.shop.java.models;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="user")
 public class User extends Model{
 
     private static final long serialVersionUID = -8950386400041310256L;
