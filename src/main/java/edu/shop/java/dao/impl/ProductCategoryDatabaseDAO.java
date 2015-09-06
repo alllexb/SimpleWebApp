@@ -4,10 +4,10 @@ import edu.shop.java.dao.ProductCategoryDao;
 import edu.shop.java.models.ProductCategory;
 import org.springframework.stereotype.Repository;
 
-@Repository("productCategoryDatabaseDAO")
-public class ProductCategoryDatabaseDAO extends HibernateAbstractDao<ProductCategory> implements ProductCategoryDao{
+@Repository("productCategoryDatabaseDao")
+public class ProductCategoryDatabaseDao extends HibernateAbstractDao<ProductCategory> implements ProductCategoryDao{
 
-    public ProductCategoryDatabaseDAO() {
+    public ProductCategoryDatabaseDao() {
 
     }
 
