@@ -1,7 +1,6 @@
 package edu.shop.java.models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.GregorianCalendar;
 
 @Entity
@@ -10,10 +9,15 @@ public class Order extends Model{
 
     private static final long serialVersionUID = -844764279431695981L;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 
+    @Column(name = "date")
     private GregorianCalendar calendar;
 
     public Order() {

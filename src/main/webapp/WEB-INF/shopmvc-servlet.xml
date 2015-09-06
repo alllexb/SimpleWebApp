@@ -75,6 +75,21 @@
 		<property name="rolePrefix" value="" />
 	</bean>
 
+	<!-- Session Factory bean definition -->
+
+	<!--<bean id="sessionFactory"-->
+		  <!--class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
+		<!--<property name="dataSource" ref="dataSource" />-->
+		<!--<property name="packagesToScan" value="x.y.spitter.domain" />-->
+		<!--<property name="hibernateProperties">-->
+			<!--<props>-->
+				<!--<prop key="dialect">org.hibernate.dialect.PostgreSQLDialect</prop>-->
+				<!--<prop key="hibernate.show_sql">true</prop>-->
+				<!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
+			<!--</props>-->
+		<!--</property>-->
+	<!--</bean>-->
+
 	<!-- Internationalization and Localization -->
 	<bean id="messageSourse" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basename" value="classpath:messages" />
