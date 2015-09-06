@@ -6,5 +6,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <t:template>
-    <p>SHOP HOME PAGE</p>
+    <p>ACCESS DENIED</p>
 </t:template>
