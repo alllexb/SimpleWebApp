@@ -47,6 +47,45 @@
 
 	<context:property-placeholder location="classpath:application.properties" />
 
+	<!-- Session Factory bean definition -->
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" >
+			<list>
+				<value>edu.shop.java.models</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</prop>
+				<prop key="hibernate.connection.charSet">UTF-8</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.enable_lazy_load_no_trans">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManger" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManger" />
+
+	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="10" />
+		<property name="maxIdle" value="5" />
+		<property name="minIdle" value="2" />
+	</bean>
+
+	<!-- Spring Security -->
+
 	<securety:http pattern="/css/**" security="none" />
 	<securety:http pattern="/images/**" security="none" />
 	<securety:http pattern="/js/**" security="none" />
@@ -74,21 +113,6 @@
 	<bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
 		<property name="rolePrefix" value="" />
 	</bean>
-
-	<!-- Session Factory bean definition -->
-
-	<!--<bean id="sessionFactory"-->
-		  <!--class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">-->
-		<!--<property name="dataSource" ref="dataSource" />-->
-		<!--<property name="packagesToScan" value="x.y.spitter.domain" />-->
-		<!--<property name="hibernateProperties">-->
-			<!--<props>-->
-				<!--<prop key="dialect">org.hibernate.dialect.PostgreSQLDialect</prop>-->
-				<!--<prop key="hibernate.show_sql">true</prop>-->
-				<!--<prop key="hibernate.hbm2ddl.auto">update</prop>-->
-			<!--</props>-->
-		<!--</property>-->
-	<!--</bean>-->
 
 	<!-- Internationalization and Localization -->
 	<bean id="messageSourse" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
