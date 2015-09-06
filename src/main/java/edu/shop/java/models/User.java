@@ -5,8 +5,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.*;
 
 @Entity
@@ -15,8 +14,8 @@ public class User extends Model implements UserDetails{
 
     private static final long serialVersionUID = -8950386400041310256L;
 
-    @Size(min = 5, max = 25)
     @NotNull
+    @Size(min = 5, max = 25)
     @Column(name = "username", length = 25)
     private String username;
 
@@ -78,21 +77,21 @@ public class User extends Model implements UserDetails{
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

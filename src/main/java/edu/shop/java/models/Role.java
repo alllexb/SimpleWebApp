@@ -1,11 +1,7 @@
 package edu.shop.java.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,9 +11,11 @@ public class Role extends Model{
 
     private static final long serialVersionUID = -5380958355394845918L;
 
+//    @Min(value = 4)
+//    @Column(name = "title", length = 25, insertable = false, updatable = false)
     @NotNull
-    @Min(value = 4)
-    @Column(name = "title", length = 25)
+    @Column(name = "title")
+    @Enumerated(EnumType.STRING)
     private RoleList title;
 
     @Column(name = "description", length = 255)

@@ -1,5 +1,6 @@
 package edu.shop.java.helpers;
 
+import edu.shop.java.models.RoleList;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 

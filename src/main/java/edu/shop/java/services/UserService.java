@@ -16,12 +16,13 @@ import java.util.List;
 public class UserService implements UserDetailsService{
 
     @Autowired
-    @Qualifier(value = "userFileDao")
+    @Qualifier(value = "userDatabaseDao")
     private UserDao userDao;
 
     public UserService() {
     }
 
+    @Transactional
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.getByUsername(username);
