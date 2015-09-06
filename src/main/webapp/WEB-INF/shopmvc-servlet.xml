@@ -100,12 +100,12 @@
 
 		<securety:intercept-url pattern="/product/list.html" access="isAuthenticated()" />
 		<securety:logout logout-url="/logout.html" />
-		<securety:remember-me user-service-ref="userAuthorityService" key="shop_key" />
+		<securety:remember-me user-service-ref="userService" key="shop_key" />
 
 	</securety:http>
 
 	<securety:authentication-manager>
-		<securety:authentication-provider user-service-ref="userAuthorytyService">
+		<securety:authentication-provider user-service-ref="userService">
 			<securety:password-encoder ref="passwordHelper" />
 		</securety:authentication-provider>
 	</securety:authentication-manager>
