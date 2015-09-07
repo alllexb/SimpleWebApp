@@ -6,8 +6,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 
 <t:template>
-    <form action="/auth.htm" method="POST">
+    <form action="<c:url value = "/auth.htm" />" method="POST">
         <input type="hidden" name="_spring_security_remember_me" value="true"/>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             <div>
                 <label>Username: </label>
                 <input type="text" name="username" value="" placeholder="Your name" />
@@ -19,12 +20,12 @@
             <div>
                 <input type="submit" name="login" value="Log in" />
             </div>
-        <p>
+        <p class="error">
             <c:if test="${param.error == 'invalidLoginPassword'}">
                 Invalid login or password. Please check and try again.
             </c:if>
         </p>
-        <p>
+        <p class="error">
             <c:if test="${param.error == 'loginRequired'}" >
                 You are currently logged off. Please log in.
             </c:if>

@@ -10,12 +10,28 @@
 
     <link rel="stylesheet" href='<c:url value="/css/main.css"/>' />
 
-    <script src="<c:url value="/js/main.js" />" />
+    <%--<script src="<c:url value="/js/main.js" />" />--%>
 
-    <title></title>
+    <title>WEB SIMPLE SHOP</title>
 </head>
 <body>
-    <div class="" style=" height: 100px; background-color: #abb231"></div>
+    <%--<div class="" style=" height: 100px; background-color: #abb231"></div>--%>
+    <div id="logout_poz">
+        <form action="<c:url value="/logout.htm" />" method="POST">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <input class="logout_sub" type="submit" name="logout" value="Logout"/>
+        </form>
+    </div>
+    <div>
+    <table id="mainTable">
+        <tr class="header">
+            <td>
+                <p><a href="/shop/user/login.html" class="head"><h1>Web Simple Shop</h1></a></p>
+            </td>
+        </tr>
+    </table>
+    </div>
+
     <jsp:doBody/>
 </body>
 </html>

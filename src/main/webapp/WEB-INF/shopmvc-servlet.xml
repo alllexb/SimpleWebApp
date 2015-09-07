@@ -91,7 +91,6 @@
 	<securety:http pattern="/css/**" security="none" />
 	<securety:http pattern="/images/**" security="none" />
 	<securety:http pattern="/js/**" security="none" />
-	<securety:http pattern="/user/**" security="none" />
 
 	<securety:http auto-config="true" use-expressions="true">
 		<securety:access-denied-handler error-page="/user/access_denied.html"/>
@@ -101,7 +100,7 @@
 							 always-use-default-target="true" authentication-failure-url="/user/login.html?error=invalidLoginPassword" />
 
 		<securety:intercept-url pattern="/product/list.html" access="isAuthenticated()" />
-		<securety:logout logout-url="/logout.html" />
+		<securety:logout logout-url="/logout.htm" />
 		<securety:remember-me user-service-ref="userService" key="shop_key" />
 
 	</securety:http>
@@ -118,7 +117,8 @@
 
 	<!-- Internationalization and Localization -->
 	<bean id="messageSourse" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="classpath:messages" />
+		<!--<property name="basename" value="classpath:messages"/>-->
+		<property name="basename" value="messages"/>
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
