@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name="product")
+@Table(name="tb_product")
 public class Product extends Model{
 
     private static final long serialVersionUID = -6806181345182230742L;

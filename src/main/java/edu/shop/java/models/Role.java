@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="role")
+@Table(name="tb_role")
 public class Role extends Model{
 
     private static final long serialVersionUID = -5380958355394845918L;

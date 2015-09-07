@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name="product_category")
+@Table(name="tb_product_category")
 public class ProductCategory extends Model{
 
     private static final long serialVersionUID = 6872655937147977360L;

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.GregorianCalendar;
 
 @Entity
-@Table(name="order")
+@Table(name="tb_order")
 public class Order extends Model{
 
     private static final long serialVersionUID = -844764279431695981L;

@@ -48,8 +48,8 @@ public class PasswordHelper implements PasswordEncoder{
     }
 
     public static void main(String[] args) {
-        System.out.println(hash("admin"));
-        System.out.println(hash("user"));
+        System.out.println("admin: " + hash("admin"));
+        System.out.println("user :" + hash("user"));
     }
 
     @Override

@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 import java.util.*;
 
 @Entity
-@Table(name="user")
+@Table(name="tb_user")
 public class User extends Model implements UserDetails{
 
     private static final long serialVersionUID = -8950386400041310256L;
@@ -24,7 +24,7 @@ public class User extends Model implements UserDetails{
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id", nullable = false, updatable = false),
+    @JoinTable(name = "tb_user_role", joinColumns = @JoinColumn(name = "user_id", nullable = false, updatable = false),
     inverseJoinColumns = @JoinColumn(name = "role_id", nullable = false, updatable = false))
     private Set<Role> roles = new HashSet<>();
 
